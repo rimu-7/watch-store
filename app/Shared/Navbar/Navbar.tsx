@@ -9,14 +9,14 @@ function Navbar() {
         <Link href={"/"} className="hidden md:inline-block items-center">
           BeautiWatches
         </Link>
-        <div className="relative mx-w-[300] md:max-w-[400]">
-          <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+        <div className="relative mx-w-[300] md:max-w-[400] border-black/[0.7]">
+          <div className="  absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
             {/* Search Icon */} <Search className=" w-4 h-4" />
           </div>
           <input
             type="text"
             placeholder="Search"
-            className="h-[36px] relative pl-10 border-[1px] border-black/[0.7] 
+            className="h-[36px] relative pl-10 border-[1px] 
             text-sm rounded-[8px] w-full py-2 px-3  "
           />
         </div>
