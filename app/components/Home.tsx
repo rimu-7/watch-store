@@ -29,8 +29,8 @@ function Home() {
       <Image
         src="/home-img.png"
         alt="image"
-        layout="responsive" 
-        width={500} 
+        layout="responsive"
+        width={500}
         height={500}
       />
     </div>

@@ -16,7 +16,7 @@ function ProductList() {
         {products.map((product, index) => (
           <Link href={"/product/123"} key={index}>
             <Image
-              src={"/product-1.jpg"}
+              src={"/product-1.png"}
               width={500}
               height={500}
               className="max-w-80 h-72 object-cover rounded-lg shadow-blue-400"

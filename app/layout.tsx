@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Lato } from "next/font/google";
+import { Lato } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Shared/Navbar/Navbar";
 import Footer from "./Shared/Footer/Footer";
