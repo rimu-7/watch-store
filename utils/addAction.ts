@@ -2,6 +2,7 @@
 
 import { ConnectDB } from "@/app/api/Database/ConnectDB";
 import cloudinary from "./cloudinary";
+import Product from "@/app/api/models/product.model";
 
 export async function addAction(formData: FormData) {
   try {
@@ -20,13 +21,13 @@ export async function addAction(formData: FormData) {
 
     // Convert File to Buffer
     const arrayBuffer = await image.arrayBuffer();
-    const buffer = Buffer.from(arrayBuffer);
+    const buffer = new Uint8Array(arrayBuffer);
 
     // Upload Image to Cloudinary
     const imageResponse: any = await new Promise((resolve, reject) => {
       const uploadStream = cloudinary.uploader.upload_stream(
         { resource_type: "auto", folder: "Watches" },
-        (error, result) => {
+        async (error, result) => {
           if (error) {
             reject(error.message);
           } else {
@@ -37,10 +38,16 @@ export async function addAction(formData: FormData) {
       uploadStream.end(buffer);
     });
 
+    //Store in DB
+    await Product.create({
+      image: imageResponse.secure_url,
+      name,
+      price,
+      link,
+      description,
+    });
     return {
-      success: true,
-      imageUrl: imageResponse.secure_url,
-      imageId: imageResponse.public_id,
+      success: "Product Upload Successfully",
     };
   } catch (error) {
     console.error("Error in addAction:", error);

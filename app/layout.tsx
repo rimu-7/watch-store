@@ -3,6 +3,7 @@ import { Lato } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Shared/Navbar/Navbar";
 import Footer from "./Shared/Footer/Footer";
+import ToastProvider from "@/provider/ToastProvider";
 
 const lato = Lato({
   subsets: ["latin"],
@@ -21,10 +22,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${lato.className} antialiased`}>
-        <Navbar />
-        {children}
-        <Footer />
+      <body className={`${lato.className} antialiased `}>
+        <div className="w-full md:w-full lg:w-[85%] mx-auto flex flex-col  ">
+          <ToastProvider />
+          <Navbar />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );
