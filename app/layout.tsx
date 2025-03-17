@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
-import { Lato } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Shared/Navbar/Navbar";
 import Footer from "./Shared/Footer/Footer";
 import ToastProvider from "@/provider/ToastProvider";
 
-const lato = Lato({
-  subsets: ["latin"],
-  weight: ["100", "300", "400", "700", "900"],
+import localFont from "next/font/local";
+
+const lato = localFont({
+  src: "./fonts/Lato-Regular.ttf",
+  weight: "400",
+  style: "normal",
 });
 
 export const metadata: Metadata = {
@@ -22,9 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${lato.className} antialiased `}>
-        <div className="w-full md:w-full lg:w-[85%] mx-auto flex flex-col  ">
-          <ToastProvider />
+      <body className={`${lato.className} antialiased`}>
+        <ToastProvider />
+        <div className="w-full md:w-full lg:w-[85%] mx-auto flex flex-col">
           <Navbar />
           {children}
           <Footer />
