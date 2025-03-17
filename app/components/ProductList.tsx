@@ -32,7 +32,7 @@ function ProductList() {
             key={product._id}
             className="block"
           >
-            <div className="bg-white p-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform backdrop-blur-md border border-white/50">
+            <div className=" p-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform backdrop-blur-md border border-white/50">
               <div className="relative w-full h-36 md:h-40 overflow-hidden rounded-xl">
                 <Image
                   src={product.image}

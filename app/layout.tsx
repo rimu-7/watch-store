@@ -4,6 +4,7 @@ import Navbar from "./Shared/Navbar/Navbar";
 import Footer from "./Shared/Footer/Footer";
 import ToastProvider from "@/provider/ToastProvider";
 
+
 import localFont from "next/font/local";
 
 const lato = localFont({
@@ -24,9 +25,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${lato.className} antialiased`}>
-        <ToastProvider />
-        <div className="w-full md:w-full lg:w-[85%] mx-auto flex flex-col">
+      <body className={`${lato.className} antialiased `}>
+        <div className="w-full md:w-full lg:w-[85%] mx-auto flex flex-col justify-center">
+          <ToastProvider />
           <Navbar />
           {children}
           <Footer />
