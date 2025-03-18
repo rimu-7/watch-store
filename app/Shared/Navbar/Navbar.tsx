@@ -5,27 +5,25 @@ import { useRouter } from "next/navigation";
 import { ChangeEvent } from "react";
 
 function Navbar() {
+  //search funtion
+  const router = useRouter();
+  const handleChange = async (e: ChangeEvent<HTMLInputElement>) => {
+    const urlParams = new URLSearchParams(window.location.search);
+    urlParams.set("searchTerm", e.target.value);
 
+    const searchQuery = urlParams.toString();
 
-  //search funtion 
-  const router = useRouter()
-  const handleChange = async(e: ChangeEvent<HTMLInputElement>)=>{
-    const urlParams = new URLSearchParams(window.location.search)
-    urlParams.set("searchTerm", e.target.value)
-
-    const searchQuery = urlParams.toString()
-
-
-    router.push(`/search?${searchQuery}`)
-  }
-
-
+    router.push(`/search?${searchQuery}`);
+  };
 
   return (
     <nav className="px-4 md:px-12 py-4 md:py-6 ">
       <div className="flex justify-between items-center">
-        <Link href={"/"} className="inline-block items-center">
-          Owatch
+        <Link
+          href={"/"}
+          className="inline-block items-center font-bold text-3xl"
+        >
+          <span className="text-red-500">O</span>watch
         </Link>
         <div className="relative mx-w-[300] md:max-w-[400] border-black/[0.7]">
           <div className="  absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
