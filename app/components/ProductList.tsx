@@ -32,25 +32,30 @@ function ProductList() {
             key={product._id}
             className="block"
           >
-            <div className=" p-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform backdrop-blur-md border border-white/50">
-              <div className="relative w-full h-36 md:h-40 overflow-hidden rounded-xl">
+            <div className="relative p-5 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 backdrop-blur-lg bg-white/30 border border-white/40">
+              {/* Image Section */}
+              <div className="relative w-full h-72 md:h-48 overflow-hidden rounded-2xl">
                 <Image
                   src={product.image}
                   alt={product.name}
-                  layout="responsive" // Makes the image responsive
-                  width={500} // Set a natural width for the image
-                  height={300} // Set a natural height for the image
-                  className="rounded-xl object-cover"
+                  layout="responsive"
+                  width={500}
+                  height={500}
+                  className="rounded-2xl object-cover transition-transform duration-500 hover:scale-110"
                 />
               </div>
-              <div className="mt-5 text-center">
-                <h2 className="font-bold text-xl text-gray-800">
+
+              {/* Product Info */}
+              <div className="mt-6 text-center">
+                <h2 className="font-bold text-2xl text-gray-900 drop-shadow-lg">
                   {product.name}
                 </h2>
-                <p className="font-medium text-md mt-2 text-gray-700 bg-white/50 px-3 py-1 rounded-lg inline-block">
+                <p className="font-semibold text-md mt-3 text-gray-800 bg-white/60 px-4 py-2 rounded-lg shadow-md inline-block">
                   ${product.price}
                 </p>
               </div>
+
+
             </div>
           </Link>
         ))}
